@@ -1,0 +1,318 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+body{
+  margin: 0;
+  padding: 0;
+}
+
+html,body, #root{
+  width: 100%;
+  height: 100%;
+}
+.main-container{
+  height: max-content;
+  min-height: 100%;
+}
+:root {
+  font-family: Inter, Avenir, Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 24px;
+  font-weight: 400;
+  
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+
+
+.sidebar-container{
+  @apply bg-secondary;
+  box-sizing: border-box;
+}
+.profile-section{
+  padding: 30px 100px;
+  @apply ss:flex ss:flex-col ss:items-center hidden
+}
+.profile-photo{
+  background-image: url("./assets/profile-photo.jpg");
+  width: 100px;
+  height: 100px;
+  display: inline-block;
+  background-size: cover;
+  border-radius: 50%;
+  background-position: center;
+  margin: 10px 0;
+}
+
+.profile-photo-small{
+  background-image: url("./assets/profile-photo.jpg");
+  width: 35px;
+  height: 35px;
+  display: inline-block;
+  background-size: cover;
+  border-radius: 50%;
+  background-position: center;
+}
+.bottom-border{
+  border-bottom: 1px solid #36465c;
+}
+.sidebar-container ul{
+  list-style-type: none;
+  padding: 20px 30px;
+  margin: 0;
+}
+
+.sidebar-container li{
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.sidebar-container li:hover{
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.sidebar-container li.selected{
+  border-right: 2px solid #48e0ff;
+}
+.sidebar-container li span.selected{
+  color: #48e0ff;
+}
+
+.m-image img{
+  width: 250px;
+  height: auto;
+}
+.m-info-image img{
+
+  height: auto;
+}
+.m-info-image{
+  overflow: hidden
+}
+
+
+.btn {
+  @apply font-bold py-2 px-6 rounded  mr-2;
+}
+.btn-blue {
+  @apply bg-btnColor text-black;
+}
+.btn-blue:hover {
+  -webkit-box-shadow: inset 0px 0px 5px #339fb4;
+     -moz-box-shadow: inset 0px 0px 5px #339fb4;
+          box-shadow: inset 0px 1px 5px #339fb4;
+}
+
+.btn-blue-t {
+  @apply bg-transparent text-btnColor border border-btnColor;
+}
+.btn-blue-t:hover {
+  -webkit-box-shadow: inset 0px 0px 5px #339fb4;
+     -moz-box-shadow: inset 0px 0px 5px #339fb4;
+          box-shadow: inset 0px 1px 5px #339fb4;
+}
+
+.movie-block.selected{
+  border: 3px solid #37b2cc;
+}
+
+.movie-block{
+  border: 3px solid #394b61;
+}
+.movie-info-container{
+  
+  width: 100%;
+  flex-direction: column;
+  justify-content: center;
+}
+
+
+.movie-info-content{
+  animation-fill-mode: forwards;
+  animation-name: opacityAnimation;
+  animation-duration: 1.5s;
+  
+}
+.m-info-desc{
+  animation-fill-mode: forwards;
+  animation-name: infoAnimation;
+  animation-duration: 1.5s;
+}
+
+.rating-bar{
+  animation-fill-mode: forwards;
+  animation-name: ratingBarAnimation;
+  animation-duration: 1.5s;
+}
+
+
+
+@keyframes opacityAnimation {
+  0%   {opacity: 0;}
+  75%   {opacity: 0;}
+  100%  {opacity: 1;}
+}
+@keyframes infoAnimation {
+  0%   {}
+  75%   {margin-top: 20px;}
+  100%  {}
+}
+@keyframes ratingBarAnimation {
+  0%   {width: 0;}
+  75%   {width: 0;}
+  100%  {}
+}
+
+
+
+
+
+.icon-mid{
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-position: center;
+  @apply mr-2
+}
+
+@media screen and (min-width: 620px) {
+  .hidden-d{
+    display: none;
+  }
+
+  .movie-info-container{
+    flex-direction: column;
+    justify-content: center;
+    animation-fill-mode: forwards;
+    animation-name: containerAnimation;
+    animation-duration: 0.5s;
+  }
+  .movie-info-wrapper{
+    animation-fill-mode: forwards;
+    animation-name: wrapperAnimation;
+    animation-duration: 1s;
+    width: inherit;
+  }
+
+  @keyframes wrapperAnimation {
+    0%   {height: 0px; opacity: 0.7;}
+    50%   {height: 0px; opacity: 0.7;}
+    100%  {height: 450px; opacity: 1;}
+  }
+  @keyframes containerAnimation {
+    0%   {height: 0px; opacity: 0.7;}
+    100%  {height: 450px; opacity: 1;}
+  }
+
+
+  .search-bar-animate{
+    animation-fill-mode: forwards;
+    animation-name: searchBarAnimation;
+    animation-duration: 1s;
+  }
+  
+  @keyframes searchBarAnimation {
+    0%   {width: 100px;  }
+    100%  {width: 500px;  }
+  }
+
+}
+
+@media screen and (max-width: 620px) {
+  .hidden-m{
+    display: none;
+  }
+  .movie-info-container{
+      height: 100vh;
+      width: 100vw;
+      overflow: auto;
+      position: fixed;
+      left: 0;
+      top: 0;
+  }
+
+  .movie-info-container{
+    animation-fill-mode: forwards;
+    animation-name: containerAnimation;
+    animation-duration: 0.5s;
+  }
+  /* .movie-info-wrapper{
+    animation-fill-mode: forwards;
+    animation-name: wrapperAnimation;
+    animation-duration: 1s;
+  } */
+
+  @keyframes wrapperAnimation {
+    0%   {height: 0px; opacity: 0.7;}
+    50%   {height: 0px; opacity: 0.7;}
+    100%  {height: 100vh; opacity: 1;}
+  }
+  @keyframes containerAnimation {
+    0%   {height: 0px; opacity: 0.7;}
+    100%  {height: 100vh; opacity: 1;}
+  }
+
+}
+
+
+.icon-search{
+  background-image: url("./assets/icon-search.png");
+}
+
+.icon-playlist{
+  background-image: url("./assets/icon-playlist.png");
+}
+.icon-my-list{
+  background-image: url("./assets/icon-my-list.png");
+}
+.icon-movie{
+  background-image: url("./assets/icon-movie.png");
+}
+.icon-tv-shows{
+  background-image: url("./assets/icon-tv-shows.png");
+}
+.icon-watchlater{
+  background-image: url("./assets/icon-watchlater.png");
+}
+.icon-recommended{
+  background-image: url("./assets/icon-recommended.png");
+}
+.icon-settings{
+  background-image: url("./assets/icon-settings.png");
+}
+.icon-logout{
+  background-image: url("./assets/icon-logout.png");
+}
+.icon-add{
+  background-image: url("./assets/icon-add.png");
+}
+.icon-play{
+  background-image: url("./assets/icon-play.png");
+}
+.icon-cross{
+  background-image: url("./assets/icon-cross.png");
+}
+.icon-m-menu{
+  background-image: url("./assets/icon-m-menu.png");
+}
+.icon-small{
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  background-position: center;
+  @apply mr-5
+}
