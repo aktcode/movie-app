@@ -10,22 +10,22 @@ export default function TitleInfo({movieItem, setSelectedMovie}){
     }, []);
     const ratingWidth = (movieItem.imdbRating*10)+"%";
     return(
-        <div className="movie-info-container h-max ss:h-[450px] overflow-auto ss:overflow-hidden ss:rounded-lg relative" ref={scrollingRef}>
-            <div className="movie-info-wrapper bg-mblock ss:rounded-lg ">
-                <div className="movie-info-content flex flex-col ss:flex-row">
-                    <span className="m-info-image">
-                        <img className="w-full ss:w-[380px] ss:rounded-l-lg" src={movieItem.Poster} />
+        <div className="movie-info-container" ref={scrollingRef}>
+            <div className="movie-info-wrapper ">
+                <div className="movie-info-content">
+                    <span className="m-info-image ">
+                        <img src={movieItem.Poster} />
                     </span>
-                    <div className="m-info-desc py-5 px-5 ss:px-10 max-w-2xl">
-                        <div className="text-3xl text-textGrey mt-5 mb-1 font-bold">{movieItem.Title}</div>
+                    <div className="m-info-desc">
+                        <div className="m-info-title">{movieItem.Title}</div>
 
                         <div className="flex items-center">
-                            <div className="w-[150px] bg-[#283746] rounded-full h-2.5 my-5 mr-2">
-                                <div className="rating-bar bg-btnColor h-2.5 rounded-full" style={{width: ratingWidth}}></div>
+                            <div className="rating-bar-container">
+                                <div className="rating-bar" style={{width: ratingWidth}}></div>
                             </div>
                             <span>{movieItem.imdbRating}/10</span>
                         </div>
-                        <div className="grid grid-cols-2 gap-y-2 max-w-md">
+                        <div className="m-attr-grid">
                             <div>Year:</div>
                             <div>{movieItem.Year}</div>
                             <div>Running Time:</div>
@@ -51,7 +51,7 @@ export default function TitleInfo({movieItem, setSelectedMovie}){
                 </div>
 
             </div>
-            <span className="ss:hidden absolute top-1 right-2 px-4 py-2 rounded-full text-center bg-black text-white cursor-pointer" onClick={() => setSelectedMovie("")}>X</span>
+            <span className="close-info" onClick={() => setSelectedMovie("")}>X</span>
         </div>
     )
 }

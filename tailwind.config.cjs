@@ -25,10 +25,12 @@ module.exports = {
     screens: {
       xs: {"min" : "480px"},
       ss: {"min" : "620px"},
+      ssmax: {"max" : "620px"},
       sm: {"min" : "768px"},
       md: {'min' : "1060px"},
       lg: {'min' : "1200px"},
       xl: {'min' : "1700px"},
+      sp: {'min' : "620px", 'max' : "900px"}
     },
   },
   plugins: [],

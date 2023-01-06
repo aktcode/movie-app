@@ -41,7 +41,8 @@ html,body, #root{
   box-sizing: border-box;
 }
 .profile-section{
-  padding: 30px 100px;
+  /* padding: 30px 100px; */
+  @apply py-[30px] px-[50px] lg:px-[100px];
   @apply ss:flex ss:flex-col ss:items-center hidden
 }
 .profile-photo{
@@ -90,6 +91,9 @@ html,body, #root{
   color: #48e0ff;
 }
 
+.search-bar-container{
+  @apply flex justify-between items-center min-h-[68px];
+}
 .m-image img{
   width: 250px;
   height: auto;
@@ -102,7 +106,12 @@ html,body, #root{
   overflow: hidden
 }
 
-
+.search-input{
+  @apply bg-transparent md:w-[500px] text-lg outline-none;
+}
+.search-click{
+  @apply hidden-m relative p-4 top-[3px];
+}
 .btn {
   @apply font-bold py-2 px-6 rounded  mr-2;
 }
@@ -130,28 +139,51 @@ html,body, #root{
 
 .movie-block{
   border: 3px solid #394b61;
+  @apply flex m-1 sm:m-4 flex-col p-2 bg-mblock rounded-lg cursor-pointer;
+}
+.movie-row{
+  @apply grid m-auto ss:grid-cols-5 w-max ss:w-auto;
+}
+.photo-container{
+  @apply flex items-center justify-between ss:hidden py-2 px-4 bottom-border;
 }
 .movie-info-container{
-  
+  @apply h-max ss:h-[450px] overflow-auto ss:overflow-hidden ss:rounded-lg relative;
   width: 100%;
   flex-direction: column;
   justify-content: center;
 }
 
-
+.close-info{
+  @apply ss:hidden absolute top-1 right-2 px-4 py-2 rounded-full text-center bg-black text-white cursor-pointer;
+}
 .movie-info-content{
+  @apply flex flex-col ss:flex-row;
   animation-fill-mode: forwards;
   animation-name: opacityAnimation;
   animation-duration: 1.5s;
   
 }
+.m-info-image img{
+  @apply w-full ss:w-[380px] ss:rounded-l-lg;
+}
 .m-info-desc{
+  @apply  py-5 px-5 ss:px-10 max-w-2xl;
   animation-fill-mode: forwards;
   animation-name: infoAnimation;
   animation-duration: 1.5s;
 }
-
+.rating-bar-container{
+  @apply w-[150px] bg-[#283746] rounded-full h-2.5 my-5 mr-2;
+}
+.m-info-title{
+  @apply text-3xl text-textGrey mt-5 mb-1 font-bold;
+}
+.m-attr-grid{
+  @apply grid grid-cols-2 gap-y-2 max-w-md ;
+}
 .rating-bar{
+  @apply bg-btnColor h-2.5 rounded-full;
   animation-fill-mode: forwards;
   animation-name: ratingBarAnimation;
   animation-duration: 1.5s;
@@ -185,8 +217,8 @@ html,body, #root{
 .icon-mid{
   background-repeat: no-repeat;
   background-size: contain;
-  width: 20px;
-  height: 20px;
+  
+  @apply md:w-[20px] md:h-[20px] w-[15px] h-[15px];
   display: inline-block;
   background-position: center;
   @apply mr-2
@@ -245,6 +277,10 @@ html,body, #root{
 
 }
 
+.movie-info-wrapper{
+  @apply bg-mblock ss:rounded-lg;
+}
+/* Media queries below */
 @media screen and (max-width: 620px) {
   .hidden-m{
     display: none;

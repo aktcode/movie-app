@@ -1,7 +1,5 @@
 import { titlesData } from "../components/data/movies";
 
-
-
 /**
  * Get titles divided into rows
  * @param {array} allTitles 
