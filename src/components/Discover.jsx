@@ -18,6 +18,7 @@ export default function Discover({type}){
     useEffect(() => {
         //
         setSearchText("");
+        setSelectedMovie({});
       }, [pathname]);
     
     if(type == "not-configured"){
@@ -31,7 +32,6 @@ export default function Discover({type}){
             <SearchBar searchText={searchText} setSearchText={setSearchText} />
 
                 <div className="mx-auto mt-10">
-
                 {allMoviesRows.length ? 
                     (
                     allMoviesRows.map((moviesRow,n) => (

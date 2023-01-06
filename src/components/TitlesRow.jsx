@@ -10,7 +10,7 @@ export default function TitlesRow({moviesInBlock, setSelectedMovie, selectedMovi
                 {(selectedMovieData.length != 0 ? 
                 (<TitleInfo movieItem={selectedMovieData[0]} setSelectedMovie={setSelectedMovie} /> )
                 : "")}
-            <div className="movie-row flex flex-wrap ss:flex-nowrap  justify-center ss:justify-start">
+            <div className="movie-row grid m-auto ss:grid-cols-5 w-max ss:w-auto ">
                
                 {moviesInBlock.map((movie, n) => (
                     <React.Fragment key={movie.Title}>

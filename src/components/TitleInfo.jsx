@@ -10,14 +10,14 @@ export default function TitleInfo({movieItem, setSelectedMovie}){
     }, []);
     const ratingWidth = (movieItem.imdbRating*10)+"%";
     return(
-        <div className="movie-info-container h-max ss:h-[450px] overflow-auto ss:overflow-hidden ss:m-2 ss:rounded-lg relative" ref={scrollingRef}>
+        <div className="movie-info-container h-max ss:h-[450px] overflow-auto ss:overflow-hidden ss:rounded-lg relative" ref={scrollingRef}>
             <div className="movie-info-wrapper bg-mblock ss:rounded-lg ">
                 <div className="movie-info-content flex flex-col ss:flex-row">
                     <span className="m-info-image">
                         <img className="w-full ss:w-[380px] ss:rounded-l-lg" src={movieItem.Poster} />
                     </span>
                     <div className="m-info-desc py-5 px-5 ss:px-10 max-w-2xl">
-                        <div className="text-3xl text-textGrey my-5 font-bold">{movieItem.Title}</div>
+                        <div className="text-3xl text-textGrey mt-5 mb-1 font-bold">{movieItem.Title}</div>
 
                         <div className="flex items-center">
                             <div className="w-[150px] bg-[#283746] rounded-full h-2.5 my-5 mr-2">
@@ -35,7 +35,7 @@ export default function TitleInfo({movieItem, setSelectedMovie}){
                             <div>Language:</div>
                             <div>{movieItem.Language}</div>
                         </div>
-                        <div className="my-2">
+                        <div className="my-4">
                         {movieItem.Plot}
                         </div>
 
