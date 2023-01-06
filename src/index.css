@@ -32,7 +32,9 @@ html,body, #root{
   -webkit-text-size-adjust: 100%;
 }
 
-
+.discover-container{
+  @apply min-h-screen w-full py-10 ss:px-10 px-2
+}
 
 .sidebar-container{
   @apply bg-secondary;
@@ -176,7 +178,10 @@ html,body, #root{
 
 
 
+.search-bar{
+  @apply bg-secondary sticky top-1 ss:relative w-full ss:w-max mb-2 rounded-lg p-4 flex justify-between items-center;
 
+}
 .icon-mid{
   background-repeat: no-repeat;
   background-size: contain;
@@ -185,6 +190,16 @@ html,body, #root{
   display: inline-block;
   background-position: center;
   @apply mr-2
+}
+
+.icon-small{
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 14px;
+  height: 14px;
+  display: inline-block;
+  background-position: center;
+  @apply mr-5
 }
 
 @media screen and (min-width: 620px) {
@@ -267,52 +282,3 @@ html,body, #root{
 }
 
 
-.icon-search{
-  background-image: url("./assets/icon-search.png");
-}
-
-.icon-playlist{
-  background-image: url("./assets/icon-playlist.png");
-}
-.icon-my-list{
-  background-image: url("./assets/icon-my-list.png");
-}
-.icon-movie{
-  background-image: url("./assets/icon-movie.png");
-}
-.icon-tv-shows{
-  background-image: url("./assets/icon-tv-shows.png");
-}
-.icon-watchlater{
-  background-image: url("./assets/icon-watchlater.png");
-}
-.icon-recommended{
-  background-image: url("./assets/icon-recommended.png");
-}
-.icon-settings{
-  background-image: url("./assets/icon-settings.png");
-}
-.icon-logout{
-  background-image: url("./assets/icon-logout.png");
-}
-.icon-add{
-  background-image: url("./assets/icon-add.png");
-}
-.icon-play{
-  background-image: url("./assets/icon-play.png");
-}
-.icon-cross{
-  background-image: url("./assets/icon-cross.png");
-}
-.icon-m-menu{
-  background-image: url("./assets/icon-m-menu.png");
-}
-.icon-small{
-  background-repeat: no-repeat;
-  background-size: contain;
-  width: 14px;
-  height: 14px;
-  display: inline-block;
-  background-position: center;
-  @apply mr-5
-}

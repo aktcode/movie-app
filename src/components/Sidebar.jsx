@@ -1,9 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 export default function Sidebar(){
     const location = useLocation();
     const [showMobileMenu, setShowMobileMenu] = useState(false)
+
+    useEffect(() => {
+        setShowMobileMenu(false);
+    },[location.pathname])
     return(
         <div className={ "sidebar-container"}>
             <div className="flex items-center justify-between  ss:hidden py-2 px-4 bottom-border ">
@@ -16,16 +20,18 @@ export default function Sidebar(){
             <svg className="fill-current h-3 w-3" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><title>Menu</title><path d="M0 3h20v2H0V3zm0 6h20v2H0V9zm0 6h20v2H0v-2z"/></svg>
           </button> */}
         </div>
-            <div className={showMobileMenu ? "" : "hidden-m"}>
+            <div className={(showMobileMenu ? "" : "hidden-m") + " sticky top-0"}>
                 <div className={ "profile-section bottom-border"}>
-                    <span className="profile-photo"></span>
-                    <span className="name">Eric Hoffman</span>
+                    <Link to="/">
+                        <span className="profile-photo"></span>
+                        <span className="name">Eric Hoffman</span>
+                    </Link>
                 </div>
                 <ul className="bottom-border ">
                     {mainMenuItems.map((item) => (
                         <Link to={item.path} key={item.label}>
                             <li  className={(location.pathname == item.path ? "selected" : "") + " flex items-center"}>
-                                <span className={`icon-small icon-${item.icon}`}></span>
+                                <span className={((location.pathname == item.path) ? `icon-${item.icon}-s` : `icon-${item.icon}`) + ` icon-small`}></span>
                                 <span className={(location.pathname == item.path ? "selected" : "") + " label"}>{item.label}</span>
                             </li>
                         </Link>

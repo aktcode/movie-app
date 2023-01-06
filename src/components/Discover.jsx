@@ -1,9 +1,11 @@
 import React, { useEffect, useRef, useState } from "react"
+import { useLocation } from "react-router-dom";
 import { getAllTitleRows, getTypeBasedTitles } from "../utils/basic";
 import SearchBar from "./SearchBar";
 import TitlesRow from "./TitlesRow";
 
 export default function Discover({type}){
+    const { pathname } = useLocation();
     const [selectedMovie, setSelectedMovie] = useState({});
     const [searchText, setSearchText] = useState("");
     // Search logic
@@ -12,15 +14,21 @@ export default function Discover({type}){
 
     const allMoviesRows = getAllTitleRows(filteredMovieData);
 
+    
     useEffect(() => {
         //
-      }, []);
+        setSearchText("");
+      }, [pathname]);
     
-
+    if(type == "not-configured"){
+        return(
+            <div className="discover-container">This route <b>{location.pathname}</b> is not configured</div>
+        )
+    }
     return(
         <React.Fragment>
-            <div className="discover-container w-full py-10 ss:px-10 px-2">
-            <SearchBar setSearchText={setSearchText} />
+            <div className="discover-container">
+            <SearchBar searchText={searchText} setSearchText={setSearchText} />
 
                 <div className="mx-auto mt-10">
 
@@ -31,7 +39,7 @@ export default function Discover({type}){
                     ))
                     )    
                 
-                : "No results found for your search"}
+                : <span className="text-2xl pl-1">No results found for your search</span>}
 
                 </div>
 

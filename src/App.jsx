@@ -14,7 +14,7 @@ function App() {
           <Route path="/tv-shows" element={<Discover type="series" />}></Route>
           <Route path="/movies" element={<Discover type="movie" />}></Route>
           <Route path="/" element={<Discover />}></Route>
-          <Route path="*" element={<Discover />}></Route>
+          <Route path="*" element={<Discover type="not-configured"/>}></Route>
         </Routes>
 
         {/* <Discover /> */}

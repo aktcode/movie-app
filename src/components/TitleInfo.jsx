@@ -10,8 +10,8 @@ export default function TitleInfo({movieItem, setSelectedMovie}){
     }, []);
     const ratingWidth = (movieItem.imdbRating*10)+"%";
     return(
-        <div className="movie-info-container h-max ss:h-[450px] overflow-auto ss:overflow-hidden ss:m-2 rounded-lg relative" ref={scrollingRef}>
-            <div className="movie-info-wrapper bg-mblock rounded-lg ">
+        <div className="movie-info-container h-max ss:h-[450px] overflow-auto ss:overflow-hidden ss:m-2 ss:rounded-lg relative" ref={scrollingRef}>
+            <div className="movie-info-wrapper bg-mblock ss:rounded-lg ">
                 <div className="movie-info-content flex flex-col ss:flex-row">
                     <span className="m-info-image">
                         <img className="w-full ss:w-[380px] ss:rounded-l-lg" src={movieItem.Poster} />
